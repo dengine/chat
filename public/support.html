@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">    
+      <script src="js/require-jquery.js"></script>     
+  </head>
+  <body>    
+    <div class="container">
+      <div id="chat" style="display:none"><div id = "supportChat">
+        <div id="textField">                    
+            <div class="input-append">
+            <form>
+              <input class="span11" type="text" placeholder="очікування клієнта" />
+              <span class="add-on disabled" rel="tooltip" title="відправити" id="sendMessage"><i class="icon-ok"></i></span>              
+              <span class="add-on disabled" rel="tooltip" title="показати історію" id="history"><i class="icon-list-alt"></i></span>                      
+            </form>
+            </div>
+        </div>
+      
+      </div></div>
+      
+      <div id="remoteScreen" class="container">
+        <div id="screen"></div>
+        <div class="pointer"></div>
+      </div>
+     
+    </div> 
+    <script src="js/bootstrap.min.js"></script>
+    <script src="chat/main.min.js"></script>    
+    <script>
+    $(function(){
+      require(['Chat'],function(Chat){
+          new Chat('support');
+        });
+    })          
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+#chat {
+	position: relative;
+}
+#runChat {
+	position: absolute;
+	top:5px;
+	right:5px;
+}
+div#remoteScreen {
+	display: none;
+	position: relative;
+	margin: 0 auto;
+}
+div.pointer {	
+	background-image: url("../img/cursor.png");	
+	height: 19px;
+	position: absolute;
+	width: 12px;
+	z-index: 1000;
+}
+#chat form {
+	margin:0;
+}
+#chatButtons{
+	line-height: 27px;
+}
+.alignRight {
+	text-align: right;
+}
+#chat span.add-on{
+	cursor: pointer;
+}
+#chat span.add-on.disabled {
+	cursor: default;
+}
+#history {
+	background-color: #fff;
+	position: absolute;
+	top:40px;	
+	padding: 0;
+	z-index: 999;	
+	opacity: 0.8;
+	display: none;
+    filter: alpha(opacity=80);
+}
+#chat #history p {
+	margin: 2px 6px;
+	word-wrap: break-word;
+}

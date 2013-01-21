@@ -1,0 +1,66 @@
+<script type="text/template" id="clientTemplate">
+      <div class="row">
+        <div class="span9" id="textField">                    
+            <div class="input-append">
+            <form>            
+              <input class="span8" type="text" placeholder="Нажмите начать чат" disabled/>
+              <span class="add-on disabled" rel="tooltip" title="відправити" id="sendMessage"><i class="icon-ok"></i></span>
+              <span class="add-on disabled" rel="tooltip" title="Показать рабочую область" id="remoteControl"><i class="icon-eye-open"></i></span>
+              <span class="add-on disabled" rel="tooltip" title="показать историю" id="showHistory"><i class="icon-list-alt"></i></span>                      
+            </div>
+            </form>
+        </div>      
+        <div id="chatButtons" class="span3">
+            <a href="#" id="connect" class="btn btn-success btn-small"><i class="icon-ok icon-white"></i>
+            Начать чат
+            </a>
+            <a href="#" id="disconnect" class="btn btn-inverse btn-small disabled"><i class="icon-remove icon-white"></i>
+            Закончить
+            </a>
+        </div>
+        <div id="history" class="span9 well"></div>        
+      </div>    
+</script>
+<script type="text/template" id="supportTemplate">    
+        <div class="row">
+        <div class="span10" id="textField">
+          <form>                    
+            <div class="input-append">                         
+              <input class="input-block-level" type="text" placeholder="Ожидание клиента" disabled/>
+              <span class="add-on disabled" rel="tooltip" title="відправити" id="sendMessage"><i class="icon-ok"></i></span>              
+              <span class="add-on disabled" rel="tooltip" title="показать историю" id="showHistory"><i class="icon-list-alt"></i></span>                                   
+            </div>            
+          </form>
+        </div>
+        <div id="chatButtons" class="alignRight">                         
+            <a href="#" id="accept" class="btn btn-success btn-small disabled">
+            Подтвердить
+            </a>
+        </div>            
+        <div id="history" class="span10 well"></div>        
+      </div>    
+</script>
+
+<script type="text/template" id="itemTemplate">
+  <span class="chatName <%-name ==='support' ? 'text-info' : 'text-success'%>"><%=name%>: </span>
+   <span class="chatMessage"><%=text%></span>
+</script>
+
+<script type="text/template" id="nickTemplate">
+ <div class="modal hide fade">
+     
+  <div class="modal-body">  
+    <input class="input-block-level" type="text" placeholder="введите ваше имя" />
+  </div>
+  <div class="modal-footer">
+    <a href="#" id="close" class="btn btn-inverse btn-small">
+      <i class="icon-remove icon-white"></i>
+      Закрыть
+    </a>
+    <a href="#" id="save" class="btn btn-success btn-small disabled">
+    <i class="icon-ok icon-white"></i>
+      Сохранить
+    </a>
+  </div>
+</div>
+</script>

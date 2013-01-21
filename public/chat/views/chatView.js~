@@ -1,0 +1,72 @@
+define(['Model'], function (Model) {
+    return Backbone.View.extend({
+        id: 'chat',
+        className: 'container well well-small',
+
+        initialize: function (userType) {            
+            
+
+            this.loadCss('/chat/css/chat.css');
+            //this.loadJs('/socket.io/socket.io.js');
+            
+            Model.on('change:socket', this.render, this);
+            Model.set({
+                'userType': userType,
+                'socket': io.connect('https://chat-kpa6.rhcloud.com:8443')
+            });
+            //this.setup();
+        },
+        setup: function () {
+            
+            
+            Model.set({
+               /* 'userTpl': userTpl,
+                'itemTpl': itemTpl,
+                'nickTpl': nickTpl,*/
+                //'socket': io.connect('http://localhost:8080')
+            });
+            
+            /*var tpl = $('<div/>').html(template),
+                userTpl = tpl.find('#' + Model.get('userType') + 'Template').html(),
+                itemTpl = tpl.find('#itemTemplate').html(),
+                nickTpl = tpl.find('#nickTemplate').html();
+*/
+            
+
+
+        },
+        loadCss: function (link) {
+            document.createStyleSheet ? 
+            document.createStyleSheet(link) : 
+            $("head").append($('<link/>',{ href: link, rel:'stylesheet', type:'text/css'}));
+        },
+        loadJs: function(link){            
+            $('<script/>',{src: link}).appendTo('head');
+        },
+        render: function () {
+
+            var startButton = $('<a/>', {
+                 id: 'runChat',
+                 class: 'btn btn-mini btn-success',
+                 text: 'Запустить чат'
+                });
+
+            this.$el.hide().prependTo('body');
+
+            if (Model.get('userType') === 'client') {
+                require(['ClientView'],function(ClientView){
+                    startButton.appendTo('body').on('click', function(){
+                        new ClientView;
+                    });
+                });
+            };
+
+            if (Model.get('userType') === 'support') {
+                require(['SupportView'],function(SupportView){
+                    new SupportView
+                });
+                //new SupportView;
+            };
+        }
+    });
+})

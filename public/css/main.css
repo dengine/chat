@@ -1,0 +1,15 @@
+body {	
+	padding-top: 20px;
+}
+#userForm label.control-label {
+	width:80px;
+}
+#userForm div.controls{
+	margin-left: 100px;
+}
+#userForm div.create{
+	text-align: center;
+}
+.block {
+	background-color: #fff;
+}

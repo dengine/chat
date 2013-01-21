@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>chat</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">   
+    <link href="css/main.css" rel="stylesheet" media="screen">
+     <script src="js/require-jquery.js"></script>     
+  </head>
+  <body>  
+    <div id="content" class="container">
+      <div class="row"> 
+        <div class="span7">
+          <form id="userForm" class="form-horizontal well">
+      <div class="row">
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="firstName">Имя:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="firstName" tabindex="1" type="text"/>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="streetAddress">Улица:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="streetAddress" tabindex="4" type="text"/>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div class="row">
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="lastName">Фамилия:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="lastName" tabindex="2" type="text"/>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="postalCode">Индекс:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="postalCode" tabindex="5" type="text"/>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div class="row">
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="age">Возраст:</label>
+            <div class="controls">
+              <select tabindex="3" class="span2" id="age">
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="last">Город:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="city" tabindex="6" type="text"/>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div class="row">
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="phone">Телефон:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="phone" tabindex="7" type="text"/>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="control-group">
+            <label class="control-label" for="email">Почта:</label>
+            <div class="controls">
+              <input class="input-xlarge span2" id="email" tabindex="8" type="text"/>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="create">
+        <a id ="save" href="#" class="btn btn-success btn-small">
+          <i class="icon-ok icon-white"></i>
+          Сохранить
+        </a>
+        <a id="clear" href="#" class="btn btn-small">
+          <i class="icon-remove"></i>
+          Очистить
+        </a>
+      </div>
+    </form>            
+          </form>
+        </div>        
+        <div id="blocks" class="span4 well well-small">
+          <div class="block well">Добавлен 1 блок</div>
+          <a id="addBlock" href="#" class="btn btn-small">
+          <i class="icon-plus"></i>
+          Добавить блок
+        </a>
+        </div>        
+      </div>
+    </div>
+    
+    
+    <script src="js/bootstrap.min.js"></script>    
+    <script src="chat/main.min.js"></script>    
+    <script>
+    $(function(){
+      var counter = 1;
+      require(['Chat'],function(Chat){
+          new Chat('client');
+      });
+      $('#addBlock').on('click',function(){
+          counter+=1
+          $('<div/>').addClass('block well')
+                     .html('добавлен '+counter+' блок')
+                     .prependTo('#blocks');      
+      })
+    })          
+    </script>
+  </body>
+</html>
